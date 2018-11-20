@@ -64,6 +64,9 @@ var app6 = new Vue({
 
 
 <!-- //数据由new Vue 关联给div 再传给组件进行填充 -->
+<!-- 1.new Vue用来提供数据  -->
+<!-- 2.Vue.component用来提供UI模板 -->
+
 Vue.component('todo-item', {
   props: ['todo'],
   template: '<li>{{ todo.text }}</li>'
@@ -81,3 +84,29 @@ var app7 = new Vue({
 })
 
 
+<!-- -----------------//$符合用来直接寻找vue实例的属性----------------------------------------- -->
+var data = { a: 1 }
+var vm = new Vue({
+  el: '#example',
+  data: data
+})
+
+vm.$data === data // => true
+vm.$el === document.getElementById('example') // => true
+
+<!--// $watch 是一个实例方法-->
+vm.$watch('a', function (newValue, oldValue) {
+ <!--// 这个回调将在 `vm.a` 改变后调用-->
+})
+<!-- --------------------------------------------------------- -->
+new Vue({
+  data: {
+    a: 1
+  },
+  created: function () {
+    <!--// `this` 指向 vm 实例-->
+    console.log('a is: ' + this.a)
+  },
+   <!--//不要在选项属性或回调上使用箭头函数 this不指向vue对象-->
+  created: () => console.log(this.a)
+})
