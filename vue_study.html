@@ -44,9 +44,6 @@
   <p>{{ message }}</p>
   <input v-model="message">
   
-  
-
-  
 </div>
 
 
@@ -64,6 +61,13 @@
       v-bind:key="item.id">
     </todo-item>
   </ol>
+</div>
+
+
+
+<div id="app-8">
+  <p>Original message: "{{ message }}"</p>
+  <p>Computed reversed message: "{{ reversedMessage }}"</p>
 </div>
 
 

@@ -91,8 +91,8 @@ var vm = new Vue({
   data: data
 })
 
-vm.$data === data // => true
-vm.$el === document.getElementById('example') // => true
+vm.$data === data <!-- // => true-->
+vm.$el === document.getElementById('example') <!--// => true-->
 
 <!--// $watch 是一个实例方法-->
 vm.$watch('a', function (newValue, oldValue) {
@@ -109,4 +109,25 @@ new Vue({
   },
    <!--//不要在选项属性或回调上使用箭头函数 this不指向vue对象-->
   created: () => console.log(this.a)
+})
+
+<!-- --------------------------------------------------------- -->
+<!-- //提交事件不再重载页面 -->
+<form v-on:submit.prevent="onSubmit">...</form>
+
+<!-- //只有在 keyCode 是 13 时调用 vm.submit() -->
+<input v-on:keyup.13="submit">
+<!-- --------------------------------------------------------- -->
+var app-8 = new Vue({
+  el: '#app-8',
+  data: {
+    message: 'Hello'
+  },
+  computed: {
+    <!--// 计算属性的 getter -->
+    reversedMessage: function () {
+      <!--// `this` 指向 vm 实例 -->
+      return this.message.split('').reverse().join('')
+    }
+  }
 })
