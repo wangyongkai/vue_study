@@ -91,8 +91,8 @@ var vm = new Vue({
   data: data
 })
 
-vm.$data === data <!-- // => true-->
-vm.$el === document.getElementById('example') <!--// => true-->
+vm.$data === data <!-- // => true -->
+vm.$el === document.getElementById('example') <!--// => true -->
 
 <!--// $watch 是一个实例方法-->
 vm.$watch('a', function (newValue, oldValue) {
@@ -118,7 +118,7 @@ new Vue({
 <!-- //只有在 keyCode 是 13 时调用 vm.submit() -->
 <input v-on:keyup.13="submit">
 <!-- --------------------------------------------------------- -->
-var app-8 = new Vue({
+new Vue({
   el: '#app-8',
   data: {
     message: 'Hello'
